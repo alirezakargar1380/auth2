@@ -1,0 +1,811 @@
+{
+	"info": {
+		"_postman_id": "9949b587-2477-4ff3-a3e0-9e27fb6ecb82",
+		"name": "auth-almas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "service",
+						"value": "[\"bidabor\"]",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "role",
+							"value": "{ \"bidabor\": \"superuser\" }",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "09176420200",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "alireza",
+							"type": "text"
+						},
+						{
+							"key": "real_or_legal",
+							"value": "real",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "abbas@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "user_information",
+							"value": "{ \"name\": \"alireza\" }",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "company_information",
+							"value": "{ \"name\": \"ship\" }",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "service",
+						"value": "[\"ak\"]",
+						"type": "text"
+					},
+					{
+						"key": "role",
+						"value": "{ \"bidabor\": \"admin\" }",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "09176420200",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjhlN2EzLWVjNzUtNGIzNi1iODNiLTBjYzQ5MTZlMjZiZSIsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImFsaXJlemFhIiwiaWF0IjoxNjI2MzMyOTY3LCJleHAiOjE2MjYzNTQ1Njd9.Omn0HqF3yc_WA8qIchXAbnpZ8LzRMUBQV1wxdNvH5HA",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3MmNhYTlhLWQ2MTAtNDkzYy1hNzViLTI1NzA4MmVhYzMwNiIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY0NjY2MDUsImV4cCI6MTYyNjQ4ODIwNX0.c6wItp7kY6rYw2yEpoTf0obWFWg0CJku4Kfn8_HtF4E",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "009881951",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/user/update/password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"update",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update phone number",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjhlN2EzLWVjNzUtNGIzNi1iODNiLTBjYzQ5MTZlMjZiZSIsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImFsaXJlemFhIiwiaWF0IjoxNjI2MzMyOTY3LCJleHAiOjE2MjYzNTQ1Njd9.Omn0HqF3yc_WA8qIchXAbnpZ8LzRMUBQV1wxdNvH5HA",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "0937000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/user/update/phone-number",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"update",
+						"phone-number"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjhlN2EzLWVjNzUtNGIzNi1iODNiLTBjYzQ5MTZlMjZiZSIsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImFsaXJlemFhIiwiaWF0IjoxNjI2MzMyOTY3LCJleHAiOjE2MjYzNTQ1Njd9.Omn0HqF3yc_WA8qIchXAbnpZ8LzRMUBQV1wxdNvH5HA",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "alirezakargarsuport@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/user/update/email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"update",
+						"email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user information update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTM1MTcsImV4cCI6MTYyNjcyMDcxN30.rqdY1JLyfl-qenlHlarX12KsqIcSqgogwUGNa3BMYDA",
+							"type": "text"
+						},
+						{
+							"key": "user_information",
+							"value": "{ \"name\": \"arash\" }",
+							"type": "text"
+						},
+						{
+							"key": "national_code",
+							"value": "354020111111",
+							"type": "text"
+						},
+						{
+							"key": "real_or_legal",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/user/update/user-information",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"update",
+						"user-information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update social meadia",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth_token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTM1MTcsImV4cCI6MTYyNjcyMDcxN30.rqdY1JLyfl-qenlHlarX12KsqIcSqgogwUGNa3BMYDA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "social_media",
+							"value": "{ \"insta\": \"ali\" }",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/user/update/social_media",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"update",
+						"social_media"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "role update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjhlN2EzLWVjNzUtNGIzNi1iODNiLTBjYzQ5MTZlMjZiZSIsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImFsaXJlemFhIiwiaWF0IjoxNjI2MzMyOTY3LCJleHAiOjE2MjYzNTQ1Njd9.Omn0HqF3yc_WA8qIchXAbnpZ8LzRMUBQV1wxdNvH5HA",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "{}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/user/update/role",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"update",
+						"role"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "company information update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTM1MTcsImV4cCI6MTYyNjcyMDcxN30.rqdY1JLyfl-qenlHlarX12KsqIcSqgogwUGNa3BMYDA",
+							"type": "text"
+						},
+						{
+							"key": "company_information",
+							"value": "{ \"phone_number\": \"09376489525\" }",
+							"type": "text"
+						},
+						{
+							"key": "registration_id",
+							"value": "99999",
+							"type": "text"
+						},
+						{
+							"key": "national_id",
+							"value": "8888",
+							"type": "text"
+						},
+						{
+							"key": "economic_code",
+							"value": "20014",
+							"type": "text"
+						},
+						{
+							"key": "company_name",
+							"value": "ak company",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/user/update/company-information",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"update",
+						"company-information"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recovery by email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "alirezakargarsuport@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/recovery-by/send-email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"recovery-by",
+						"send-email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recovery by sms",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_number",
+							"value": "09376489525",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/recovery-by/send-sms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"recovery-by",
+						"send-sms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recover",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "code",
+							"value": "621044",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "899479998",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/recovery-by/recover",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"recovery-by",
+						"recover"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get role",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "shid",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "service",
+						"value": "bidabor",
+						"type": "text"
+					},
+					{
+						"key": "auth_token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkNzE2YWU3LWE1NzYtNDY0Zi04YTg1LWRlMTIxOWFlNDExZSIsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjYzOTg3ODMsImV4cCI6MTYyNjQyMDM4M30.dmMbROH-ZZ_m4qgpqxggx3gKDTBl58jKz9pr5Ee835w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3009/user/get-roles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"get-roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recovery by last_pass",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "service",
+						"value": "bidabor",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "alireza",
+							"type": "text"
+						},
+						{
+							"key": "last_password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/recovery-by/last-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"recovery-by",
+						"last-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user account",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth_token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhN2ViMjRkLTI5MzgtNDgzOC05OWQ2LTllMmU5ZjA2M2IxMCIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY0NjQ4MjQsImV4cCI6MTYyNjQ4NjQyNH0.ljA_k6bc0y6vyZze5ZO6297YEEZj1SiXYnHg5Wehynk",
+						"type": "text"
+					},
+					{
+						"key": "service",
+						"value": "bidabor",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3009/user/delete-account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"delete-account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update security question",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "service",
+						"value": "[\"bidabor\"]",
+						"type": "text"
+					},
+					{
+						"key": "auth_token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTAwMjksImV4cCI6MTYyNjcxNzIyOX0.zXBfs8gUVFZO9A1uo1-0Ihba29hiyFIv_w191zzjHrI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "answers",
+							"value": "{\"what is your favorite movie?\": \"thor\", \"what is your favorite place?\": \"germany\"}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/user/update/security_question",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"update",
+						"security_question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recovery by answers",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "service",
+						"value": "[\"bidabor\"]",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "alireza",
+							"type": "text"
+						},
+						{
+							"key": "what is your favorite movie?",
+							"value": "thor",
+							"type": "text"
+						},
+						{
+							"key": "pass",
+							"value": "0000849",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/recovery-by/answers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"recovery-by",
+						"answers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get session",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth_token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTA2NDcsImV4cCI6MTYyNjcxNzg0N30.QaYoZm2f4BvqD95z02QQcGOXO1l2zSotCVE9CfMZrFw",
+						"type": "text"
+					},
+					{
+						"key": "service",
+						"value": "bidabor",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3009/sessions/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"sessions",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "service",
+						"value": "[\"service\"]",
+						"type": "text"
+					},
+					{
+						"key": "auth_token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTA2NDcsImV4cCI6MTYyNjcxNzg0N30.QaYoZm2f4BvqD95z02QQcGOXO1l2zSotCVE9CfMZrFw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3009/user/get-users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"user",
+						"get-users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
