@@ -15,12 +15,28 @@ module.exports = class Model {
 
     optionsGenerator(method) {
         if(method === 'full') {
-            return {
-                where : this.condition ,
-                order : this.order_by ,
-                limit : this.limit
+            if (this.condition)
+            {
+                return {
+                    where : this.condition ,
+                }
             }
-        } 
+            if (this.order_by)
+            {
+                return {
+                    where : this.condition ,
+                    order : this.order_by ,
+                }
+            }
+            if (this.limit)
+            {
+                return {
+                    where : this.condition ,
+                    order : this.order_by ,
+                    limit : this.limit
+                }
+            }
+        }
         else {
             return {
                 where : this.condition 

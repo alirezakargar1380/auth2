@@ -6,26 +6,39 @@ const userService = require("../service/user.service");
 const sessionService = require("./../service/session.service");
 const login_validate = require("../validations/login.validate");
 const logout_validate = require("../validations/logout.validate");
-
-var ip = require("ip");
+const redis = require("redis");
+const redisClient = redis.createClient();
 
 exports.login = async (req, res) =>
 {
   try {
     login_validate.login(req.fields)
     var headers = JSON.parse(req.headers.service)
-    if ( headers.length >= 2 )
-      return response.exception(res, "service array cant be more than 1");
-
+    // if ( headers.length >= 2 )
+    //   return response.exception(res, "service array cant be more than 1");
     req.fields.email = req.fields.username
     req.fields.phone_number = req.fields.username
     const data = await registerService.check_for_username_available(req.fields);
     if (!data) return response.error(res, "your username or password is wrong!")
+    if (data[0].password === req.fields.password)
+    {
+      redisClient.get(data[0].id, async (err, user_id) =>
+      {
+        if (err) console.error(err)
+        if (user_id) {
+          return  response.success(res, JSON.parse(user_id))
+        } else {
+          var token = await loginService.login(data[0], req.fields)
+          await userService.update_service(req.fields, headers)
+          // PROBLEM
+          // token.id = data[0].id
+          redisClient.setex(data[0].id, process.env.redisEndTime, JSON.stringify(token))
+          // await sessionService.set_session(req ,data[0])
+          response.success(res, token)
 
-    const token = await loginService.login(data[0], req.fields)
-    await userService.update_service(req.fields, headers)
-    await sessionService.set_session(req)
-    response.success(res, token)
+        }
+      })
+    }
 
   } catch (e) {
     return response.exception(res, e.message);

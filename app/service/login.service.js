@@ -2,6 +2,7 @@ const login_model = require("./../model/login.model");
 const JWT = require("./../utils/JWT.utility");
 const Exception = require('../utils/error.utility');
 const _ = require("lodash")
+const  { v4: uuidv4 }  = require('uuid');
 
 exports.login = async (user_information, fields) =>
 {
@@ -69,6 +70,7 @@ exports.login_without_pass = async (fields) =>
 
 exports.get_user_by_username = async (fields, headers) =>
 {
+  console.log(uuidv4())
   login_model.condition = { username : fields.username }
   const user_information = await login_model.select()
   var service = fields.service;

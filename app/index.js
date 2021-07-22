@@ -2,7 +2,8 @@ const express = require("express")
 const app = express()
 var bodyParser = require('body-parser');
 const formidable = require('express-formidable');
-var session = require('express-session')
+var session = require('express-session');
+
 // const t = 60000 * 60
 app.use(session({
   secret: 'keyboard cat',

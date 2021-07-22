@@ -17,7 +17,6 @@ exports.checking_security_questions = async (fields) =>
   {
     security_questions_keys.push(security_questions[i].question)
   }
-
   if(client_security_questions.sort().join(',') !== security_questions_keys.sort().join(','))
   {
     throw Exception.setError("your security question does not match")

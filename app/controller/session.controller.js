@@ -10,9 +10,9 @@ exports.get_sessions = async (req, res) => {
     var decode_token = await tokenService.decode_token(req.headers.auth_token)
     // return response.success(res, decode_token)
     // if (req.session.user_id === decode_token.id)
-      return response.success(res,
-          await sessionService.get_sessions(decode_token)
-      )
+    return response.success(res,
+        await sessionService.get_sessions(decode_token)
+    )
 
     return response.success(res, "nothing")
   } catch (e) {

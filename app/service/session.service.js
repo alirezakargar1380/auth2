@@ -3,22 +3,22 @@ const session_model = require("./../model/session.model")
 const  { v4: uuidv4 }  = require('uuid');
 const Exception = require('../utils/error.utility');
 
-exports.set_session = async (req) =>
+exports.set_session = async (req, data) =>
 {
   if (!req.session.user_id)
   {
-    login_model.condition = { username : req.fields.username} 
+    login_model.condition = { username : req.fields.username }
     const user_information = await login_model.select()
-    if (req.session.user_id !== user_information[0].id.toString())
+    if (req.session.user_id !== data.toString())
       console.log("session set "+req.session.id)
 
-    session_model.condition = { user_id : ser_information[0].id }
+    session_model.condition = { user_id : data.id }
     if (await session_model.counts() < 3) {
       // save
       session_model.condition = ``
       var json = {
         id: uuidv4(),
-        user_id: user_information[0].id,
+        user_id: data.id,
         session_id: req.session.id,
         block_status: false
       }
@@ -30,13 +30,13 @@ exports.set_session = async (req) =>
 
     }
 
-    return req.session.user_id = user_information[0].id.toString()
+    return req.session.user_id = data.id.toString()
   }
 
 }
 
 exports.get_sessions = async (user_info) =>
 {
-  session_model.condition = { user_id : ser_info.id }
+  session_model.condition = { user_id : user_info.id }
   return await session_model.select()
 }

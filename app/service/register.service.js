@@ -1,4 +1,5 @@
 const model = require("../model/users.model")
+// const model = require("../sequelize_models/users.model")
 const  { v4: uuidv4 }  = require('uuid');
 const Exception = require('../utils/error.utility');
 const _ = require("lodash");
@@ -13,8 +14,6 @@ exports.add = async (fields, service) =>
 exports.check_for_available = async (fields) =>
 {
   model.condition = { username : fields.username }
-  return console.log(await model.count_all())
-
   if (await model.count_all() !== 0) return false
 
   model.condition = { email : fields.email }

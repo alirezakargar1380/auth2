@@ -37,10 +37,9 @@ exports.add = async (req, res) =>
     // }
     // if (!result.status)
     //   return response.error(res, "this username is available in this service")
-    if (await registerService.check_for_available(req.fields))
-      return response.success(res,"You have registered before")
 
-    return response.success(res,"hey")
+    if (!await registerService.check_for_available(req.fields))
+      return response.success(res,"You have registered before")
 
     response.success(res,
         await registerService.add(req.fields, req.headers.service)
