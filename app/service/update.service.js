@@ -24,7 +24,7 @@ exports.user_information = async (decoded_token, fields) =>
 {
   usersModel.condition = { id : decoded_token.id }
   return await usersModel.update_items({
-    user_information : fields.user_information , national_code : fields.national_code 
+    user_information : fields.user_information , national_code : fields.national_code , real_or_legal : fields.real_or_legal
   })
 }
 

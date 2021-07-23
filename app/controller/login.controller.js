@@ -8,6 +8,7 @@ const login_validate = require("../validations/login.validate");
 const logout_validate = require("../validations/logout.validate");
 const redis = require("redis");
 const redisClient = redis.createClient();
+const Exception = require('./../utils/error.utility');
 
 exports.login = async (req, res) =>
 {
@@ -38,7 +39,7 @@ exports.login = async (req, res) =>
 
         }
       })
-    }
+    } else { throw Exception.setError("your username or password is wrong!") }
 
   } catch (e) {
     return response.exception(res, e.message);

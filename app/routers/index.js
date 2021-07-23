@@ -6,5 +6,6 @@ module.exports = (app) => {
         require('./recovery.routers'),
         require('./get_user_data.routers'),
         require('./session.router'),
+        require('./search.routers'),
     );
 }

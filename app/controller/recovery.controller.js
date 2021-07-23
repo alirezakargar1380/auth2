@@ -78,12 +78,13 @@ exports.by_sms = async (req, res) =>
 
     // generate code
     const code = await recoveryService.create_disposable_code_with_phone(req.fields);
-    console.log(code.code)
+    await recoveryService.send_sms_for_recover(
+        req.fields.phone_number,
+        code.code
+    )
 
     return response.success(res,
-        await recoveryService.send_sms_for_recover(
-            req.fields.phone_number
-        )
+        "done"
     )
 
   } catch (e) {

@@ -134,7 +134,7 @@ exports.create_disposable_code_with_phone = async (fields) =>
 }
 
 // exports.recover_by_email
-exports.send_sms_for_recover = async (phone_number) =>
+exports.send_sms_for_recover = async (phone_number, code) =>
 {
   const username = '09190914073';
   const password = '981bmhe';
@@ -142,7 +142,7 @@ exports.send_sms_for_recover = async (phone_number) =>
   const sms = api.sms();
   const to = "09376489525";
   const from = '30008666914073';
-  const text = 'تست وب سرویس ملی پیامک';
+  const text = `${code}کد امنیتی شما `;
   sms.send(to,from,text).then(res=>{
     //RecId or Error Number
     console.log(res)
