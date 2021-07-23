@@ -1,6 +1,7 @@
 const express = require("express");
 const Router = express.Router();
 const recovery = require("../controller/recovery.controller");
+const redis = require("./../service/redis.service");
 
 Router
     .route('/recovery-by/send-email')
@@ -8,7 +9,7 @@ Router
 
 Router
     .route('/recovery-by/send-sms')
-    .post(recovery.by_sms)
+    .post(redis.sms_phone_number_blocking, recovery.by_sms)
 
 Router
     .route('/recovery-by/last-password')

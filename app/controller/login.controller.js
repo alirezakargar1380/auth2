@@ -6,9 +6,9 @@ const userService = require("../service/user.service");
 const sessionService = require("./../service/session.service");
 const login_validate = require("../validations/login.validate");
 const logout_validate = require("../validations/logout.validate");
+const Exception = require('./../utils/error.utility');
 const redis = require("redis");
 const redisClient = redis.createClient();
-const Exception = require('./../utils/error.utility');
 
 exports.login = async (req, res) =>
 {
@@ -26,7 +26,7 @@ exports.login = async (req, res) =>
       redisClient.get(data[0].id, async (err, user_id) =>
       {
         if (err) console.error(err)
-        if (user_id) {
+        if (user_id !== null) {
           return  response.success(res, JSON.parse(user_id))
         } else {
           var token = await loginService.login(data[0], req.fields)
@@ -34,7 +34,7 @@ exports.login = async (req, res) =>
           // PROBLEM
           // token.id = data[0].id
           redisClient.setex(data[0].id, process.env.redisEndTime, JSON.stringify(token))
-          // await sessionService.set_session(req ,data[0])
+          await sessionService.set_session(req ,data[0])
           response.success(res, token)
 
         }

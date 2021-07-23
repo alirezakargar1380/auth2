@@ -6,6 +6,8 @@ const disposableCodeService = require("../service/disposable_code.service");
 const tokenService = require("../service/token.service");
 const security_questionService = require("../service/security_question.service");
 const loginService = require("../service/login.service");
+const redis = require("redis");
+const redisClient = redis.createClient();
 
 exports.recovery = async (req, res) =>
 {
@@ -77,11 +79,11 @@ exports.by_sms = async (req, res) =>
       return response.error(res, "this phone number is not exist")
 
     // generate code
-    const code = await recoveryService.create_disposable_code_with_phone(req.fields);
-    await recoveryService.send_sms_for_recover(
-        req.fields.phone_number,
-        code.code
-    )
+    // const code = await recoveryService.create_disposable_code_with_phone(req.fields);
+    // await recoveryService.send_sms_for_recover(
+    //     req.fields.phone_number,
+    //     code.code
+    // )
 
     return response.success(res,
         "done"
