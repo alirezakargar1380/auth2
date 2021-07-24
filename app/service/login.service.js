@@ -70,8 +70,9 @@ exports.login_without_pass = async (fields) =>
 
 exports.get_user_by_username = async (fields, headers) =>
 {
-  console.log(uuidv4())
   login_model.condition = { username : fields.username }
+  if (await login_model.count_all() === 0)
+    throw Exception.setError("we dont have this username")
   const user_information = await login_model.select()
   var service = fields.service;
   if (
@@ -88,4 +89,15 @@ exports.active_sessions = async () =>
 
 }
 
-exports
+exports.get_user_by_id = async (user_id) =>
+{
+  login_model.condition = { id : user_id }
+  const user_information = await login_model.select()
+  return {
+    token: await JWT.sign({
+      id: user_information[0].id.toString(),
+      role: user_information[0].role,
+      service: user_information[0].service
+    })
+  }
+}

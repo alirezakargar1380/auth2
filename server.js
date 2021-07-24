@@ -6,12 +6,12 @@ const disposable_code_service = require("./app/service/disposable_code.service")
 // 0 1-59/1 * * * *
 // */2 * * * * *
 // sequelize.sync()
-// cron.schedule('*/10 * * * * *', async () => {
-//   log.info('------ per 10 sec -------');
-//   disposable_code_service.check_for_expire(
-//       await disposable_code_service.get_all_valide_codes()
-//   )
-// })
+cron.schedule('*/10 * * * * *', async () => {
+  log.info('------ per 10 sec -------');
+  disposable_code_service.check_for_expire(
+      await disposable_code_service.get_all_valide_codes()
+  )
+})
 
 require("./app").listen(port, () => {
   log.info(`Server running on port: ${port}`)

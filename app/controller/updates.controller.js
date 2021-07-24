@@ -115,7 +115,9 @@ exports.update_security_question = async (req, res) =>
     await tokenService.token_validate(req.headers.auth_token)
     var decoded_token = await tokenService.decode_token(req.headers.auth_token)
     await security_questionService.checking_security_questions(req.fields)
+
     const result = await security_questionService.save_security_answers(req.fields, decoded_token)
+
     return response.success(res, result)
   } catch (e) {
     return response.exception(res, e.message);

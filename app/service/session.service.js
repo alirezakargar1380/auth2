@@ -40,3 +40,10 @@ exports.get_sessions = async (user_info) =>
   session_model.condition = { user_id : user_info.id }
   return await session_model.select()
 }
+
+exports.get_sessions_by_session_id = async (session_id) =>
+{
+  session_model.condition = { session_id : session_id }
+  if (await session_model.counts() === 0) return null
+  return await session_model.select()
+}

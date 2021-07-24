@@ -32,10 +32,9 @@ exports.save_security_answers = async (fields, user_info) =>
   if (await security_answersModel.counts() === 0)
   {
     // insert
-    console.log("sdf")
     fields.id = uuidv4()
     fields.user_id = user_info.id
-    return console.log( await security_answersModel.save(fields) )
+    return await security_answersModel.save(fields)
   }
   security_answersModel.condition = { user_id : user_info.id } 
   const se = await security_answersModel.select()
@@ -45,20 +44,31 @@ exports.save_security_answers = async (fields, user_info) =>
 
 exports.check_answers = async (fields, user_info) =>
 {
-  security_answersModel.condition = { user_id : user_info.id } 
+  security_answersModel.condition = { user_id : user_info.id }
+  console.log(await security_answersModel.counts())
+  if (await security_answersModel.counts() === 0)
+    return false
   const answers = await security_answersModel.select()
 
   var db_answer = "";
   var user_answer = "";
-  for (i = 0; i <= answers.length; i++)
-  {
-    if (fields[_.keys(JSON.parse(answers[0].answers))[i]]) {
+  var keys = JSON.parse(answers[0].answers)
+  db_answer = keys[fields.question]
+  user_answer = fields.answer
 
-      db_answer = fields[_.keys(JSON.parse(answers[0].answers))[i]]
-      user_answer = JSON.parse(answers[0].answers)[_.keys(JSON.parse(answers[i].answers))[i]]
-
-    }
-  }
+  // return console.log(user_answer+ " "+db_answer)
+  // for (i = 0; i <= answers.length; i++)
+  // {
+  //   if (fields[_.keys(JSON.parse(answers[0].answers))[i]]) {
+  //     // console.log(fields[_.keys(JSON.parse(answers[0].answers))[i]])
+  //     console.log(JSON.parse(answers[0].answers)[_.keys(JSON.parse(answers[i].answers))[i]]);
+  //     // console.log([_.keys(JSON.parse(answers[i].answers))[i]]);
+  //     // console.log( _.keys(JSON.parse(answers[i].answers))[i] );
+  //     db_answer = fields[_.keys(JSON.parse(answers[0].answers))[i]]
+  //     user_answer = JSON.parse(answers[0].answers)[_.keys(JSON.parse(answers[i].answers))[i]]
+  //
+  //   }
+  // }
 
   if (db_answer === user_answer)
   {

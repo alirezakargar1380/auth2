@@ -79,11 +79,11 @@ exports.by_sms = async (req, res) =>
       return response.error(res, "this phone number is not exist")
 
     // generate code
-    // const code = await recoveryService.create_disposable_code_with_phone(req.fields);
-    // await recoveryService.send_sms_for_recover(
-    //     req.fields.phone_number,
-    //     code.code
-    // )
+    const code = await recoveryService.create_disposable_code_with_phone(req.fields);
+    await recoveryService.send_sms_for_recover(
+        req.fields.phone_number,
+        code.code
+    )
 
     return response.success(res,
         "done"
@@ -102,12 +102,17 @@ exports.recovery_by_answers = async (req, res) =>
       return response.exception(res, "service array cant be more than 1");
 
     validate.security_answers_header(req.headers)
-    req.fields.service = req.headers.service
+    req.fields.service = JSON.parse(req.headers.service)
     var information = await loginService.get_user_by_username(req.fields, headers)
     await recoveryService.set_last_pass(information)
 
+    var result = await security_questionService.check_answers(req.fields, information)
+
+    if (!result)
+      return response.error(res, "your answer does not match")
+
     response.success(res,
-        await security_questionService.check_answers(req.fields, information)
+          result
         )
   } catch (e) {
     return response.exception(res, e.message);

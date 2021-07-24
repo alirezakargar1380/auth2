@@ -14,12 +14,15 @@ exports.add = async (fields, service) =>
 exports.check_for_available = async (fields) =>
 {
   model.condition = { username : fields.username }
+  // console.log(await model.count_all())
   if (await model.count_all() !== 0) return false
 
-  model.condition = { email : fields.email }
-  if (await model.count_all() !== 0) return false
+  // model.condition = { email : fields.email }
+  // console.log(await model.count_all())
+  // if (await model.count_all() !== 0) return false
 
   model.condition = { phone_number : fields.phone_number }
+  // console.log(await model.count_all())
   if (await model.count_all() !== 0) return false
 
   return true

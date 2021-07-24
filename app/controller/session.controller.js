@@ -20,3 +20,19 @@ exports.get_sessions = async (req, res) => {
   }
 
 }
+
+exports.check_for_block_sessions = async (req, res, next) =>
+{
+  // sessionService.
+  if (req.session.id)
+  {
+    console.log(req.session.id)
+    const session = await sessionService.get_sessions_by_session_id(req.session.id)
+    if (session !== null) {
+      if (session[0].block_status === false) return next()
+      return response.error(res, "your are block")
+    } else {
+      next()
+    }
+  }
+}

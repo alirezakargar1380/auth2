@@ -7,5 +7,6 @@ module.exports = (app) => {
         require('./get_user_data.routers'),
         require('./session.router'),
         require('./search.routers'),
+        require('./admin.routers'),
     );
 }

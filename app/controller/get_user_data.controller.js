@@ -35,3 +35,23 @@ exports.get_user_detail = async (req, res) =>
   }
 
 }
+
+exports.get_user_detail_for_admin = async (req, res) =>
+{
+  try {
+    if (req.fields.block === "true")
+    {
+      req.fields.block = true
+    }
+    if (req.fields.block === "false")
+    {
+      req.fields.block = false
+    }
+    const user_data = await userService.update_user_sessions(req.fields)
+
+    response.success(res, user_data)
+  } catch (e) {
+    return response.exception(res, e.message);
+  }
+
+}

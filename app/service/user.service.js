@@ -1,6 +1,8 @@
 const _ = require("lodash");
 const userModel = require("../model/users.model")
 const model = require("../model/users.model")
+const sessionModel = require("../model/session.model");
+const Exception = require('../utils/error.utility');
 
 exports.update_service = async (fields , headers) =>
 {
@@ -21,4 +23,15 @@ exports.get_user_data = async (user_info) =>
 {
   userModel.condition = { id : user_info.id }
   return await userModel.get_all()
+}
+
+exports.update_user_sessions = async(fields) =>
+{
+  sessionModel.condition = { user_id : fields.user_id }
+  if (await sessionModel.counts() === 0)
+    throw Exception.setError("this user is not exist")
+
+  return await sessionModel.update_items({
+    block_status : fields.block
+  })
 }

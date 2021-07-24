@@ -2,25 +2,42 @@ const express = require("express");
 const Router = express.Router();
 const recovery = require("../controller/recovery.controller");
 const redis = require("./../service/redis.service");
+const session = require("./../controller/session.controller");
 
 Router
     .route('/recovery-by/send-email')
-    .post(recovery.by_email)
+    .post(
+        session.check_for_block_sessions,
+        recovery.by_email
+    )
 
 Router
     .route('/recovery-by/send-sms')
-    .post(redis.sms_phone_number_blocking, recovery.by_sms)
+    .post(
+        session.check_for_block_sessions,
+        redis.sms_phone_number_blocking,
+        recovery.by_sms
+    )
 
 Router
     .route('/recovery-by/last-password')
-    .post(recovery.last_pass)
+    .post(
+        session.check_for_block_sessions,
+        recovery.last_pass
+    )
 
 Router
     .route('/recovery-by/recover')
-    .post(recovery.recovery)
+    .post(
+        session.check_for_block_sessions,
+        recovery.recovery
+    )
 
 Router
     .route('/recovery-by/answers')
-    .post(recovery.recovery_by_answers)
+    .post(
+        session.check_for_block_sessions,
+        recovery.recovery_by_answers
+    )
 
 module.exports = Router;

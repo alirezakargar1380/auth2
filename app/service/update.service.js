@@ -10,12 +10,22 @@ exports.update_password = async (decoded_token, fields) =>
 
 exports.update_phone = async (decoded_token, fields) =>
 {
+  usersModel.condition = { phone_number : fields.phone_number }
+  if (await usersModel.count_all() !== 0)
+  {
+    return "this phone number is already exist"
+  }
   usersModel.condition = { id : decoded_token.id }
   return await usersModel.update_items({ phone_number : fields.phone_number })
 }
 
 exports.update_email = async (decoded_token, fields) =>
 {
+  usersModel.condition = { email : fields.email }
+  if (await usersModel.count_all() !== 0)
+  {
+    return "this email is already exist"
+  }
   usersModel.condition = { id : decoded_token.id }
   return await usersModel.update_items({ email : fields.email })
 }
@@ -58,6 +68,7 @@ exports.delete_user = async (decoded_token, service) =>
 {
   usersModel.condition = { id : decoded_token.id }
   const user_data = await usersModel.get_all()
-  if (user_data[0].service === service) return await usersModel.destroy()
-  if (user_data[0].service !== service) return "cant delete this user in this platform"
+  return await usersModel.destroy()
+  // if (user_data[0].service === JSON.parse(service)[0])
+  // if (user_data[0].service !== JSON.parse(service)[0]) return "cant delete this user in this platform"
 }

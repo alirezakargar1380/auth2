@@ -103,6 +103,23 @@ class Validate {
     );
   }
 
+  admin_login(items, throwErrors = true) {
+    const schema = new Schema({
+      code: _.assign({},
+          this.fields.code, {
+            required: true
+          },
+      ),
+    });
+
+    schema.message(this.errorMessages);
+
+    return this.constructor.sanitizeErrors(
+        schema.validate(_.assign({}, items)),
+        throwErrors,
+    );
+  }
+
   last_password(items, throwErrors = true) {
     const schema = new Schema({
       username: _.assign({},

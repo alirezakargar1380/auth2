@@ -21,7 +21,7 @@
 					"formdata": [
 						{
 							"key": "role",
-							"value": "{ \"bidabor\": \"superuser\" }",
+							"value": "{ \"bidabor\": \"user\" }",
 							"type": "text"
 						},
 						{
@@ -36,17 +36,18 @@
 						},
 						{
 							"key": "username",
-							"value": "alireza",
-							"type": "text"
-						},
-						{
-							"key": "real_or_legal",
-							"value": "real",
+							"value": "darab",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "abbas@gmail.com",
+							"value": "alirezakargarsuport@gmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "real_or_legal",
+							"value": "real",
 							"type": "text",
 							"disabled": true
 						},
@@ -99,7 +100,7 @@
 					"formdata": [
 						{
 							"key": "username",
-							"value": "09176420200",
+							"value": "darab",
 							"type": "text"
 						},
 						{
@@ -162,12 +163,12 @@
 					"formdata": [
 						{
 							"key": "auth_token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3MmNhYTlhLWQ2MTAtNDkzYy1hNzViLTI1NzA4MmVhYzMwNiIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY0NjY2MDUsImV4cCI6MTYyNjQ4ODIwNX0.c6wItp7kY6rYw2yEpoTf0obWFWg0CJku4Kfn8_HtF4E",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwidHJcIjpcImJyXCIgfSIsInVzZXJuYW1lIjoiZGFyYWIiLCJpYXQiOjE2MjcwNTQ0NzgsImV4cCI6MTYyNzA2MTY3OH0._qVRX3m-SUuwtO8GL9ZORHf46omWqA8Zjr64AcwFSIM",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "009881951",
+							"value": "888897478",
 							"type": "text"
 						}
 					]
@@ -198,12 +199,12 @@
 					"formdata": [
 						{
 							"key": "auth_token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjhlN2EzLWVjNzUtNGIzNi1iODNiLTBjYzQ5MTZlMjZiZSIsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImFsaXJlemFhIiwiaWF0IjoxNjI2MzMyOTY3LCJleHAiOjE2MjYzNTQ1Njd9.Omn0HqF3yc_WA8qIchXAbnpZ8LzRMUBQV1wxdNvH5HA",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInVzZXJcIiB9IiwidXNlcm5hbWUiOiJkYXJhYiIsImlhdCI6MTYyNzA1MjcyNSwiZXhwIjoxNjI3MDU5OTI1fQ.nZjEZ0EOxyeS81Mb1AYJem0jv7GlvJfTK_H7vLE0FUM",
 							"type": "text"
 						},
 						{
 							"key": "phone_number",
-							"value": "0937000000",
+							"value": "09176420200",
 							"type": "text"
 						}
 					]
@@ -234,7 +235,7 @@
 					"formdata": [
 						{
 							"key": "auth_token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjhlN2EzLWVjNzUtNGIzNi1iODNiLTBjYzQ5MTZlMjZiZSIsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImFsaXJlemFhIiwiaWF0IjoxNjI2MzMyOTY3LCJleHAiOjE2MjYzNTQ1Njd9.Omn0HqF3yc_WA8qIchXAbnpZ8LzRMUBQV1wxdNvH5HA",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInVzZXJcIiB9IiwidXNlcm5hbWUiOiJkYXJhYiIsImlhdCI6MTYyNzA1MjcyNSwiZXhwIjoxNjI3MDU5OTI1fQ.nZjEZ0EOxyeS81Mb1AYJem0jv7GlvJfTK_H7vLE0FUM",
 							"type": "text"
 						},
 						{
@@ -270,22 +271,22 @@
 					"formdata": [
 						{
 							"key": "auth_token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTM1MTcsImV4cCI6MTYyNjcyMDcxN30.rqdY1JLyfl-qenlHlarX12KsqIcSqgogwUGNa3BMYDA",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInVzZXJcIiB9IiwidXNlcm5hbWUiOiJkYXJhYiIsImlhdCI6MTYyNzA1MjcyNSwiZXhwIjoxNjI3MDU5OTI1fQ.nZjEZ0EOxyeS81Mb1AYJem0jv7GlvJfTK_H7vLE0FUM",
 							"type": "text"
 						},
 						{
 							"key": "user_information",
-							"value": "{ \"name\": \"arash\" }",
+							"value": "{ \"name\":\"darab\" }",
 							"type": "text"
 						},
 						{
 							"key": "national_code",
-							"value": "354020111111",
+							"value": "3540209841",
 							"type": "text"
 						},
 						{
 							"key": "real_or_legal",
-							"value": "",
+							"value": "real",
 							"type": "text"
 						}
 					]
@@ -313,7 +314,7 @@
 				"header": [
 					{
 						"key": "auth_token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTM1MTcsImV4cCI6MTYyNjcyMDcxN30.rqdY1JLyfl-qenlHlarX12KsqIcSqgogwUGNa3BMYDA",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInVzZXJcIiB9IiwidXNlcm5hbWUiOiJkYXJhYiIsImlhdCI6MTYyNzA1MjcyNSwiZXhwIjoxNjI3MDU5OTI1fQ.nZjEZ0EOxyeS81Mb1AYJem0jv7GlvJfTK_H7vLE0FUM",
 						"type": "text"
 					}
 				],
@@ -353,12 +354,12 @@
 					"formdata": [
 						{
 							"key": "auth_token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcwMjhlN2EzLWVjNzUtNGIzNi1iODNiLTBjYzQ5MTZlMjZiZSIsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImFsaXJlemFhIiwiaWF0IjoxNjI2MzMyOTY3LCJleHAiOjE2MjYzNTQ1Njd9.Omn0HqF3yc_WA8qIchXAbnpZ8LzRMUBQV1wxdNvH5HA",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInVzZXJcIiB9IiwidXNlcm5hbWUiOiJkYXJhYiIsImlhdCI6MTYyNzA1MjcyNSwiZXhwIjoxNjI3MDU5OTI1fQ.nZjEZ0EOxyeS81Mb1AYJem0jv7GlvJfTK_H7vLE0FUM",
 							"type": "text"
 						},
 						{
 							"key": "role",
-							"value": "{}",
+							"value": "{ \"tr\":\"br\" }",
 							"type": "text"
 						}
 					]
@@ -389,7 +390,7 @@
 					"formdata": [
 						{
 							"key": "auth_token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTM1MTcsImV4cCI6MTYyNjcyMDcxN30.rqdY1JLyfl-qenlHlarX12KsqIcSqgogwUGNa3BMYDA",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInVzZXJcIiB9IiwidXNlcm5hbWUiOiJkYXJhYiIsImlhdCI6MTYyNzA1MjcyNSwiZXhwIjoxNjI3MDU5OTI1fQ.nZjEZ0EOxyeS81Mb1AYJem0jv7GlvJfTK_H7vLE0FUM",
 							"type": "text"
 						},
 						{
@@ -505,18 +506,19 @@
 					"formdata": [
 						{
 							"key": "code",
-							"value": "621044",
+							"value": "212151",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "899479998",
+							"value": "12345678",
 							"type": "text"
 						},
 						{
 							"key": "",
 							"value": "",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
@@ -562,7 +564,7 @@
 					},
 					{
 						"key": "auth_token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkNzE2YWU3LWE1NzYtNDY0Zi04YTg1LWRlMTIxOWFlNDExZSIsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjYzOTg3ODMsImV4cCI6MTYyNjQyMDM4M30.dmMbROH-ZZ_m4qgpqxggx3gKDTBl58jKz9pr5Ee835w",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInVzZXJcIiB9IiwidXNlcm5hbWUiOiJkYXJhYiIsImlhdCI6MTYyNzA1MjcyNSwiZXhwIjoxNjI3MDU5OTI1fQ.nZjEZ0EOxyeS81Mb1AYJem0jv7GlvJfTK_H7vLE0FUM",
 						"type": "text"
 					}
 				],
@@ -601,12 +603,12 @@
 					"formdata": [
 						{
 							"key": "username",
-							"value": "alireza",
+							"value": "darab",
 							"type": "text"
 						},
 						{
 							"key": "last_password",
-							"value": "12345678",
+							"value": "009881951",
 							"type": "text"
 						}
 					]
@@ -633,12 +635,12 @@
 				"header": [
 					{
 						"key": "auth_token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhN2ViMjRkLTI5MzgtNDgzOC05OWQ2LTllMmU5ZjA2M2IxMCIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY0NjQ4MjQsImV4cCI6MTYyNjQ4NjQyNH0.ljA_k6bc0y6vyZze5ZO6297YEEZj1SiXYnHg5Wehynk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImYwNGE3Y2U1LTQyOTctNDlhYi1iODQwLTZmNzJjMjM0ZmI1MyIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInVzZXJcIiB9IiwidXNlcm5hbWUiOiJkYXJhYiIsImlhdCI6MTYyNzA1MjUwOSwiZXhwIjoxNjI3MDU5NzA5fQ.7pdtx_jr1vYO35eh5oH9346_w0xMuGtPUCMA3Qyhs5g",
 						"type": "text"
 					},
 					{
 						"key": "service",
-						"value": "bidabor",
+						"value": "[\"bidabor\"]",
 						"type": "text"
 					}
 				],
@@ -669,7 +671,7 @@
 					},
 					{
 						"key": "auth_token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTAwMjksImV4cCI6MTYyNjcxNzIyOX0.zXBfs8gUVFZO9A1uo1-0Ihba29hiyFIv_w191zzjHrI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwidHJcIjpcImJyXCIgfSIsInVzZXJuYW1lIjoiZGFyYWIiLCJpYXQiOjE2MjcwNTQ0NzgsImV4cCI6MTYyNzA2MTY3OH0._qVRX3m-SUuwtO8GL9ZORHf46omWqA8Zjr64AcwFSIM",
 						"type": "text"
 					}
 				],
@@ -715,17 +717,22 @@
 					"formdata": [
 						{
 							"key": "username",
-							"value": "alireza",
+							"value": "darab",
 							"type": "text"
 						},
 						{
-							"key": "what is your favorite movie?",
+							"key": "answer",
 							"value": "thor",
 							"type": "text"
 						},
 						{
 							"key": "pass",
-							"value": "0000849",
+							"value": "1234567877",
+							"type": "text"
+						},
+						{
+							"key": "question",
+							"value": "what is your favorite movie?",
 							"type": "text"
 						}
 					]
@@ -752,7 +759,7 @@
 				"header": [
 					{
 						"key": "auth_token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTA2NDcsImV4cCI6MTYyNjcxNzg0N30.QaYoZm2f4BvqD95z02QQcGOXO1l2zSotCVE9CfMZrFw",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwidHJcIjpcImJyXCIgfSIsInVzZXJuYW1lIjoiZGFyYWIiLCJpYXQiOjE2MjcwNTY5MzYsImV4cCI6MTYyNzA2NDEzNn0.EHvjnrJdceo268VSyCxcEYNOGdB_FNkqhPoFBh8IGaY",
 						"type": "text"
 					},
 					{
@@ -788,7 +795,7 @@
 					},
 					{
 						"key": "auth_token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdmNTAyY2ZkLTY0M2UtNGE4Ni04MWQ4LWM4ODhmNDU5MTQ3YSIsInJvbGUiOiJ7IFwiYmlkYWJvclwiOiBcInN1cGVydXNlclwiIH0iLCJ1c2VybmFtZSI6ImFsaXJlemEiLCJpYXQiOjE2MjY3MTA2NDcsImV4cCI6MTYyNjcxNzg0N30.QaYoZm2f4BvqD95z02QQcGOXO1l2zSotCVE9CfMZrFw",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNmU4YTAxLTZmOTUtNGZhOC05YmQ1LWU1MDU3YzQwYTgxOSIsInJvbGUiOiJ7IFwidHJcIjpcImJyXCIgfSIsInVzZXJuYW1lIjoiZGFyYWIiLCJpYXQiOjE2MjcwNTY5MzYsImV4cCI6MTYyNzA2NDEzNn0.EHvjnrJdceo268VSyCxcEYNOGdB_FNkqhPoFBh8IGaY",
 						"type": "text"
 					}
 				],
@@ -802,6 +809,142 @@
 					"path": [
 						"user",
 						"get-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update configuration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "service",
+						"value": "[\"bidabor\"]",
+						"type": "text"
+					},
+					{
+						"key": "auth_token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNGRiODk1LTYzOGUtNDkyZi1iMDJjLTY4NTIyY2FiNDQ5ZiIsInJvbGUiOiJhZG1pbiIsInNlcnZpY2UiOiJbXCJiaWRhYm9yXCIsXCJha1wiXSIsImlhdCI6MTYyNzA1NzA5NSwiZXhwIjoxNjI3MDY0Mjk1fQ.ORdReCHKyS4WO_539pYs98EtuG_40uze3Jt97NBzZiQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "darab",
+							"type": "text"
+						},
+						{
+							"key": "national_code",
+							"value": "354",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/search_users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"search_users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "code",
+							"value": "205856",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/login/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"login",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "block user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth_token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjNGRiODk1LTYzOGUtNDkyZi1iMDJjLTY4NTIyY2FiNDQ5ZiIsInJvbGUiOiJhZG1pbiIsInNlcnZpY2UiOiJbXCJiaWRhYm9yXCIsXCJha1wiXSIsImlhdCI6MTYyNzA1MTU0MywiZXhwIjoxNjI3MDU4NzQzfQ.ikTJCxJ9A-VvCKWKuifJsqtjSWosJa2TVWb6Wn2UqFg",
+						"type": "text"
+					},
+					{
+						"key": "service",
+						"value": "[\"bidabor\"]",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "5c6e8a01-6f95-4fa8-9bd5-e5057c40a819",
+							"type": "text"
+						},
+						{
+							"key": "block",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/admin/block-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"admin",
+						"block-user"
 					]
 				}
 			},

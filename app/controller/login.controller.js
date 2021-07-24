@@ -9,6 +9,8 @@ const logout_validate = require("../validations/logout.validate");
 const Exception = require('./../utils/error.utility');
 const redis = require("redis");
 const redisClient = redis.createClient();
+const disposableCodeService = require("../service/disposable_code.service");
+const recoveryValidate = require("../validations/recovery.validate");
 
 exports.login = async (req, res) =>
 {
@@ -63,4 +65,33 @@ exports.ip = async (req, res) =>
 {
   const ip = await RequestIp.getClientIp(req)
   res.send(ip)
+}
+
+exports.admin_login = async (req, res) =>
+{
+  try {
+    response.success(res, "d")
+  } catch (e) {
+    return response.exception(res, e.message);
+  }
+
+}
+
+exports.admin_login_sms = async (req, res) =>
+{
+  try {
+    recoveryValidate.admin_login(req.fields)
+    var check_result = await disposableCodeService.code_checking(req.fields.code)
+    if (!check_result.status)
+      return response.success(res,"your code was wrong")
+
+    const token = await loginService.get_user_by_id(check_result.id)
+
+    response.success(res,
+        token
+    )
+
+  } catch (e) {
+    return response.exception(res, e.message);
+  }
 }

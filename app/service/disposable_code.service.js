@@ -59,20 +59,24 @@ exports.check_for_expire = (ArrayList) => {
           }
         }
       }
+      //
 
       const now_time_minute = p.now_minute()
       const now_hour_minute = p.now_hour()
-      if (
-          parseInt(now_time_minute) > parseInt(minute)
-      ) {
-        this.expire_the_code(ArrayList[i].id)
-      }
 
+      // console.log(hour+ " " +minute)
+      // console.log(now_hour_minute+ " " +now_time_minute)
+      //
       if (
-          parseInt(now_hour_minute) > parseInt(hour)
+          parseInt(now_time_minute) > parseInt(minute) && parseInt(now_hour_minute) >= parseInt(hour)
       ) {
         this.expire_the_code(ArrayList[i].id)
       }
+      // if (
+      //     parseInt(now_hour_minute) > parseInt(hour)
+      // ) {
+      //   this.expire_the_code(ArrayList[i].id)
+      // }
 
     }
 
