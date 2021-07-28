@@ -7,8 +7,7 @@ const sessionService = require("./../service/session.service");
 const login_validate = require("../validations/login.validate");
 const logout_validate = require("../validations/logout.validate");
 const Exception = require('./../utils/error.utility');
-const redis = require("redis");
-const redisClient = redis.createClient();
+const redisClient = require("../utils/redis.utility");
 const disposableCodeService = require("../service/disposable_code.service");
 const recoveryValidate = require("../validations/recovery.validate");
 

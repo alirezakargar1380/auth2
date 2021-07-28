@@ -17,4 +17,12 @@ Router
         admin.admin_token_checking,
         login.admin_login_sms)
 
+Router
+    .route('/')
+    .get((req, res) => {
+        res
+            .status(200)
+            .send("connected...")
+    })
+
 module.exports = Router;

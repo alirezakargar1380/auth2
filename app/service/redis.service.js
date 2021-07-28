@@ -1,5 +1,10 @@
-const redis = require("redis");
-const redisClient = redis.createClient();
+// const redis = require("redis");
+// const redisClient = redis.createClient(6379, "redis");
+// redisClient.on('connect', function() {
+//   console.log('Connected!');
+// });
+const redisClient = require("./../utils/redis.utility");
+
 const response = require("./../utils/response.utitlity");
 
 exports.sms_phone_number_blocking = async (req, res, next) =>

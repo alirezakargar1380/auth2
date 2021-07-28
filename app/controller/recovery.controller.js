@@ -6,8 +6,9 @@ const disposableCodeService = require("../service/disposable_code.service");
 const tokenService = require("../service/token.service");
 const security_questionService = require("../service/security_question.service");
 const loginService = require("../service/login.service");
-const redis = require("redis");
-const redisClient = redis.createClient();
+// const redis = require("redis");
+// const redisClient = redis.createClient(30743, "johnny.iran.liara.ir");
+const redisClient = require("../utils/redis.utility");
 
 exports.recovery = async (req, res) =>
 {
