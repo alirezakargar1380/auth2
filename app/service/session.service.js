@@ -12,8 +12,13 @@ exports.set_session = async (req, data) =>
     if (req.session.user_id !== data.toString())
       console.log("session set "+req.session.id)
 
-    session_model.condition = { user_id : data.id }
-    if (await session_model.counts() < 3) {
+    // session_model.condition = { user_id : data.id }
+    // var user_session_data = await session_model.select();
+    // if (user_session_data[0])
+    //   if (user_session_data[0].session_id === req.session.id)
+    //     return
+
+    if (await session_model.counts() < 5) {
       // save
       session_model.condition = ``
       var json = {

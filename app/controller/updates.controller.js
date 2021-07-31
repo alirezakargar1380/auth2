@@ -11,6 +11,7 @@ exports.update_password = async (req, res) => {
     await tokenService.token_validate(req.fields.auth_token)
     var decode_token = await tokenService.decode_token(req.fields.auth_token)
     await recoveryService.set_last_pass(decode_token)
+    // return response.success(res, "done")
     response.success(res,
       await updatesService.update_password(decode_token, req.fields)
     )

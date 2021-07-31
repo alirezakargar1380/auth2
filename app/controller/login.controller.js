@@ -16,8 +16,10 @@ exports.login = async (req, res) =>
   try {
     login_validate.login(req.fields)
     var headers = JSON.parse(req.headers.service)
-    // if ( headers.length >= 2 )
-    //   return response.exception(res, "service array cant be more than 1");
+    var role = JSON.parse(req.headers.role)
+    if ( headers.length >= 2 )
+      return response.exception(res, "service array cant be more than 1");
+
     req.fields.email = req.fields.username
     req.fields.phone_number = req.fields.username
     const data = await registerService.check_for_username_available(req.fields);
@@ -28,16 +30,19 @@ exports.login = async (req, res) =>
       {
         if (err) console.error(err)
         if (user_id !== null) {
-          return  response.success(res, JSON.parse(user_id))
+          try {
+            await userService.update_service(req.fields, headers)
+            await userService.update_role(req.fields, role)
+            return  response.success(res, JSON.parse(user_id))
+          } catch (e) {
+            return response.exception(res, e.message);
+          }
         } else {
           var token = await loginService.login(data[0], req.fields)
           await userService.update_service(req.fields, headers)
-          // PROBLEM
-          // token.id = data[0].id
-          redisClient.setex(data[0].id, process.env.redisEndTime, JSON.stringify(token))
           await sessionService.set_session(req ,data[0])
+          redisClient.setex(data[0].id, process.env.redisEndTime, JSON.stringify(token))
           response.success(res, token)
-
         }
       })
     } else { throw Exception.setError("your username or password is wrong!") }

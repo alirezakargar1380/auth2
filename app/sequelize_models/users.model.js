@@ -32,9 +32,6 @@ const users = db.define('users' , {
     phone_number : {
         type: Sequelize.TEXT
     } ,
-    real_or_legal : {
-        type: Sequelize.TEXT
-    } ,
     registration_id : {
         type: Sequelize.TEXT
     } ,
@@ -52,6 +49,13 @@ const users = db.define('users' , {
     } ,
     username: {
         type: Sequelize.TEXT
+    },
+    user_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+    },
+    address: {
+        type: Sequelize.JSON
     }
   }
 )

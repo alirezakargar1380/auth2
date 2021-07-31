@@ -19,6 +19,28 @@ exports.update_service = async (fields , headers) =>
   }
 }
 
+exports.update_role = async (fields, role) =>
+{
+  model.condition = { username : fields.username , password : fields.password }
+  const user_info = await model.get_all();
+
+  var user_role = JSON.parse(user_info[0].role);
+
+  // console.log([role].length)
+  // if ([role].length >= 2)
+  //   throw Exception.setError("your role length cant be more than 2")
+
+  var role_keys = Object.keys(role);
+  var role_values = Object.values(role);
+
+  if (!_.includes(user_info[0].role, role_keys[0]))
+    userModel.condition = { id : user_info[0].id }
+    user_role[role_keys[0]] = role_values[0];
+    // console.log(user_role)
+    await userModel.update_items({ role : JSON.stringify(user_role) })
+
+}
+
 exports.get_user_data = async (user_info) =>
 {
   userModel.condition = { id : user_info.id }

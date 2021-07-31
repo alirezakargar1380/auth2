@@ -8,5 +8,6 @@ module.exports = (app) => {
         require('./session.router'),
         require('./search.routers'),
         require('./admin.routers'),
+        require('./address.routers'),
     );
 }

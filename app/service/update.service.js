@@ -8,6 +8,12 @@ exports.update_password = async (decoded_token, fields) =>
   return await usersModel.update_items({ password : fields.password })
 }
 
+exports.update_address = async (decoded_token, fields) =>
+{
+  usersModel.condition = { id : decoded_token.id }
+  return await usersModel.update_items({ address: fields })
+}
+
 exports.update_phone = async (decoded_token, fields) =>
 {
   usersModel.condition = { phone_number : fields.phone_number }

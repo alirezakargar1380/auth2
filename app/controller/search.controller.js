@@ -6,8 +6,6 @@ exports.search = async (req, res) => {
     try {
         // validate.header(req.headers)
         // validate.search(req.fields)
-    
-
         let headers = JSON.parse(req.headers.service)   
         if ( headers.length >= 2 ) {
             return response.exception(res, "Services array must have at length of 1 at most")

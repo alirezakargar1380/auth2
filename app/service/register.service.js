@@ -30,23 +30,22 @@ exports.check_for_available = async (fields) =>
 
 exports.check_for_username_available = async (fields) =>
 {
-  var data = ""
   model.condition = { username : fields.username }
   if (await model.count_all() !== 0)
   {
-    return data = await model.get_all()
+    return await model.get_all()
   }
 
   model.condition = { email : fields.email }
   if (await model.count_all() !== 0)
   {
-    return data = await model.get_all()
+    return await model.get_all()
   }
 
   model.condition = { phone_number : fields.phone_number }
   if (await model.count_all() !== 0)
   {
-    return data = await model.get_all()
+    return await model.get_all()
   }
 
   return false
