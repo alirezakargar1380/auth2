@@ -8,6 +8,7 @@ const authentication = require("./../controller/basic_authentication.controller"
 Router
     .route("/admin/block-user")
     .post(
+        authentication.API_authenticaiton_admin,
         admin.admin_token_checking,
         user_data.get_user_detail_for_admin
     )
@@ -15,8 +16,9 @@ Router
 Router
     .route('/login/admin')
     .post(
-        admin.admin_token_checking,
-        login.admin_login_sms)
+        authentication.API_authenticaiton_admin,
+        login.admin_login_sms
+    )
 
 Router
     .route('/admin/register')

@@ -4,7 +4,6 @@ const searchService = require("./../service/search.service")
 
 exports.search = async (req, res) => {
     try {
-        validate.header(req.headers)
         // validate.header(req.headers)
         // validate.search(req.fields)
         // let headers = JSON.parse(req.headers.service)
@@ -13,9 +12,9 @@ exports.search = async (req, res) => {
         // }
 
         req.fields.service = req.headers.service
-        response.success(res ,
-            await searchService.search(req.fields)
-        )
+        // req.fields.configurations = JSON.parse(req.fields.configurations)
+        var result = await searchService.search(req.fields)
+        response.success(res, result)
     } catch (err) {
         return response.exception(res, err.message);
     }

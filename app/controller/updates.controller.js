@@ -53,12 +53,13 @@ exports.email_update = async (req, res) =>
 exports.user_information = async (req, res) =>
 {
   try {
+    validate.user_information_header(req.headers)
     validate.user_information(req.fields)
-    await tokenService.token_validate(req.fields.auth_token)
-    var decode_token = await tokenService.decode_token(req.fields.auth_token)
-    response.success(res,
-        await updatesService.user_information(decode_token, req.fields)
-    )
+    await tokenService.token_validate(req.headers.auth_token)
+    var decode_token = await tokenService.decode_token(req.headers.auth_token)
+
+    var result = await updatesService.user_information(decode_token, req.fields)
+    response.success(res, result)
 
   } catch (e) {
     return response.exception(res, e.message);
@@ -83,12 +84,13 @@ exports.update_role = async (req, res) =>
 exports.company_information_update = async (req, res) =>
 {
   try {
+    validate.company_information_header(req.headers)
     validate.company_information(req.fields)
-    await tokenService.token_validate(req.fields.auth_token)
-    var decode_token = await tokenService.decode_token(req.fields.auth_token)
-    response.success(res,
-        await updatesService.company_information(decode_token, req.fields)
-    )
+    await tokenService.token_validate(req.headers.auth_token)
+    var decode_token = await tokenService.decode_token(req.headers.auth_token)
+
+    var result = await updatesService.company_information(decode_token, req.fields)
+    response.success(res, result)
 
   } catch (e) {
     return response.exception(res, e.message);
@@ -133,6 +135,23 @@ exports.update_social_media = async (req, res) =>
     response.success(res,
         await updatesService.update_social_media(decoded_token, req.fields)
     )
+  } catch (e) {
+    return response.exception(res, e.message);
+  }
+}
+
+exports.update_configurations = async (req, res) =>
+{
+  try {
+    validate.configurations_header(req.headers)
+    validate.configurations(req.fields)
+    await tokenService.token_validate(req.headers.auth_token)
+    var decoded_token = await tokenService.decode_token(req.headers.auth_token)
+
+    req.fields.configurations = JSON.parse(req.fields.configurations)
+    var result = await updatesService.update_configurations(decoded_token, req.fields)
+
+    response.success(res, result)
   } catch (e) {
     return response.exception(res, e.message);
   }

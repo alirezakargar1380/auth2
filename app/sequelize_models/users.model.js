@@ -8,9 +8,6 @@ const users = db.define('users' , {
         allowNull: false ,
         primaryKey: true
     } ,
-    company_information : {
-        type: Sequelize.TEXT
-    } ,
     company_name : {
         type: Sequelize.TEXT
     } ,
@@ -41,9 +38,6 @@ const users = db.define('users' , {
     service: {
         type: Sequelize.TEXT
     } ,
-    user_information: {
-        type: Sequelize.TEXT
-    } ,
     username: {
         type: Sequelize.TEXT
     },
@@ -69,6 +63,33 @@ const users = db.define('users' , {
         type: Sequelize.TEXT
     },
     telegram: {
+        type: Sequelize.TEXT
+    },
+    configurations: {
+        type: Sequelize.JSON
+    },
+    name: {
+        type: Sequelize.TEXT
+    },
+    family_name: {
+        type: Sequelize.TEXT
+    },
+    birthday: {
+        type: Sequelize.TEXT
+    },
+    gender: {
+        type: Sequelize.TEXT
+    },
+    job: {
+        type: Sequelize.TEXT
+    },
+    city_state: {
+        type: Sequelize.TEXT
+    },
+    telephone_number: {
+        type: Sequelize.TEXT
+    },
+    field_of_activity: {
         type: Sequelize.TEXT
     },
     address: {

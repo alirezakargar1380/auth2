@@ -7,10 +7,10 @@ const last_password = db.define('last_password' , {
         type: Sequelize.UUID ,
         allowNull: false ,
         primaryKey: true
-    } ,
+    },
     password : {
         type: Sequelize.TEXT
-    } ,
+    },
     user_id: {
         type: Sequelize.UUID
     }

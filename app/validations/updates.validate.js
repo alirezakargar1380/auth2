@@ -24,16 +24,50 @@ class Validate {
       email: {
         type: String,
       },
-      user_information: {
+      gender: {
         type: String,
+        enum: ['male', 'female']
       },
       role: {
         type: String,
       },
-      company_information: {
+      field_of_activity: {
+        type: String,
+      },
+      telephone_number: {
+        type: String,
+      },
+      registration_id: {
+        type: String,
+      },
+      national_id: {
+        type: String,
+      },
+      economic_code: {
+        type: String,
+      },
+      company_name: {
+        type: String,
+      },
+      birthday: {
+        type: String,
+      },
+      job: {
+        type: String,
+      },
+      city_state: {
         type: String,
       },
       answers: {
+        type: String,
+      },
+      name: {
+        type: String,
+      },
+      family_name: {
+        type: String,
+      },
+      configurations: {
         type: String,
       },
     };
@@ -138,6 +172,42 @@ class Validate {
     );
   }
 
+  configurations_header(items, throwErrors = true) {
+    const schema = new Schema({
+      auth_token: _.assign({},
+          this.fields.auth_token, {
+            required: true
+          },
+      )
+    });
+
+
+    schema.message(this.errorMessages);
+
+    return this.constructor.sanitizeErrors(
+        schema.validate(_.assign({}, items)),
+        throwErrors,
+    );
+  }
+
+  configurations(items, throwErrors = true) {
+    const schema = new Schema({
+      configurations: _.assign({},
+          this.fields.configurations, {
+            required: true
+          },
+      )
+    });
+
+
+    schema.message(this.errorMessages);
+
+    return this.constructor.sanitizeErrors(
+        schema.validate(_.assign({}, items)),
+        throwErrors,
+    );
+  }
+
   email(items, throwErrors = true) {
     const schema = new Schema({
       auth_token: _.assign({},
@@ -163,13 +233,38 @@ class Validate {
 
   user_information(items, throwErrors = true) {
     const schema = new Schema({
-      auth_token: _.assign({},
-          this.fields.auth_token, {
+      national_code: _.assign({},
+          this.fields.national_code, {
             required: true
           },
       ),
-      user_information: _.assign({},
-          this.fields.user_information, {
+      name: _.assign({},
+          this.fields.name, {
+            required: true
+          },
+      ),
+      family_name: _.assign({},
+          this.fields.family_name, {
+            required: true
+          },
+      ),
+      birthday: _.assign({},
+          this.fields.birthday, {
+            required: true
+          },
+      ),
+      gender: _.assign({},
+          this.fields.gender, {
+            required: true
+          },
+      ),
+      job: _.assign({},
+          this.fields.job, {
+            required: true
+          },
+      ),
+      city_state: _.assign({},
+          this.fields.city_state, {
             required: true
           },
       ),
@@ -177,6 +272,24 @@ class Validate {
 
 
     schema.message(this.errorMessages);
+
+    return this.constructor.sanitizeErrors(
+        schema.validate(_.assign({}, items)),
+        throwErrors,
+    );
+  }
+
+  user_information_header(items, throwErrors = true) {
+    const schema = new Schema({
+      auth_token: _.assign({},
+          this.fields.auth_token, {
+            required: true
+          },
+      ),
+    });
+
+
+    schema.message(this.headerErrorMessages);
 
     return this.constructor.sanitizeErrors(
         schema.validate(_.assign({}, items)),
@@ -209,13 +322,51 @@ class Validate {
 
   company_information(items, throwErrors = true) {
     const schema = new Schema({
-      auth_token: _.assign({},
-          this.fields.auth_token, {
+      registration_id: _.assign({},
+          this.fields.registration_id, {
             required: true
           },
       ),
-      company_information: _.assign({},
-          this.fields.company_information, {
+      national_id: _.assign({},
+          this.fields.national_id, {
+            required: true
+          },
+      ),
+      economic_code: _.assign({},
+          this.fields.economic_code, {
+            required: true
+          },
+      ),
+      company_name: _.assign({},
+          this.fields.company_name, {
+            required: true
+          },
+      ),
+      telephone_number: _.assign({},
+          this.fields.telephone_number, {
+            required: true
+          },
+      ),
+      field_of_activity: _.assign({},
+          this.fields.field_of_activity, {
+            required: true
+          },
+      ),
+    });
+
+
+    schema.message(this.errorMessages);
+
+    return this.constructor.sanitizeErrors(
+        schema.validate(_.assign({}, items)),
+        throwErrors,
+    );
+  }
+
+  company_information_header(items, throwErrors = true) {
+    const schema = new Schema({
+      auth_token: _.assign({},
+          this.fields.auth_token, {
             required: true
           },
       ),

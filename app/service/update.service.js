@@ -40,7 +40,13 @@ exports.user_information = async (decoded_token, fields) =>
 {
   usersModel.condition = { id : decoded_token.id }
   return await usersModel.update_items({
-    user_information : fields.user_information, national_code : fields.national_code , real_or_legal : fields.real_or_legal
+    name : fields.name,
+    national_code : fields.national_code,
+    family_name : fields.family_name,
+    birthday : fields.birthday,
+    gender : fields.gender,
+    job : fields.job,
+    city_state : fields.city_state,
   })
 }
 
@@ -54,7 +60,8 @@ exports.company_information = async (decoded_token, fields) =>
 {
   usersModel.condition = { id : decoded_token.id }
   return await usersModel.update_items({
-    company_information : fields.company_information ,
+    telephone_number : fields.telephone_number ,
+    field_of_activity : fields.field_of_activity ,
     registration_id : fields.registration_id ,
     national_id : fields.national_id ,
     economic_code : fields.economic_code ,
@@ -83,4 +90,10 @@ exports.delete_user = async (decoded_token, service) =>
   return await usersModel.destroy()
   // if (user_data[0].service === JSON.parse(service)[0])
   // if (user_data[0].service !== JSON.parse(service)[0]) return "cant delete this user in this platform"
+}
+
+exports.update_configurations = async (decoded_token, fields) =>
+{
+  usersModel.condition = { id : decoded_token.id }
+  return await usersModel.update_items(fields)
 }

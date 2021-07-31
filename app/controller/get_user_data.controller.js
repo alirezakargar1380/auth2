@@ -2,6 +2,7 @@ const response = require("../utils/response.utitlity");
 const validate = require("./../validations/user_data.validate");
 const tokenService = require("../service/token.service");
 const userService = require("../service/user.service");
+const admin_service = require("../service/admin.service");
 
 exports.get_role = async (req, res) =>
 {
@@ -47,6 +48,8 @@ exports.get_user_detail_for_admin = async (req, res) =>
     {
       req.fields.block = false
     }
+    var decode_token = await tokenService.decode_token(req.headers.auth_token)
+    await admin_service.checking_admin_and_user_service(req.headers.service, req.fields, decode_token)
     const user_data = await userService.update_user_sessions(req.fields)
 
     response.success(res, user_data)

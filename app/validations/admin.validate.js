@@ -8,13 +8,10 @@ const Exception = require('../utils/error.utility');
 class Validate {
   constructor() {
     this.fields = {
-      id: {
-        type: String,
-      },
-      auth_token: {
-        type: String,
-      },
       service: {
+        type: String,
+      },
+      role: {
         type: String,
       },
     };
@@ -43,6 +40,29 @@ class Validate {
 
 
     schema.message(this.headerErrorMessages);
+
+    return this.constructor.sanitizeErrors(
+        schema.validate(_.assign({}, items)),
+        throwErrors,
+    );
+  }
+
+  register(items, throwErrors = true) {
+    const schema = new Schema({
+      service: _.assign({},
+          this.fields.service, {
+            required: true
+          },
+      ),
+      phone_number: _.assign({},
+          this.fields.role, {
+            required: true
+          },
+      ),
+    });
+
+
+    schema.message(this.errorMessages);
 
     return this.constructor.sanitizeErrors(
         schema.validate(_.assign({}, items)),

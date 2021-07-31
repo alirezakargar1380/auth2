@@ -4,9 +4,9 @@ const model = require("../model/users.model")
 const sessionModel = require("../model/session.model");
 const Exception = require('../utils/error.utility');
 
-exports.update_service = async (fields , headers) =>
+exports.update_service = async (id, headers) =>
 {
-  model.condition = { username : fields.username , password : fields.password }
+  model.condition = { id : id }
   const user_info = await model.get_all();
 
   const user_services = JSON.parse(user_info[0].service)
@@ -19,9 +19,9 @@ exports.update_service = async (fields , headers) =>
   }
 }
 
-exports.update_role = async (fields, role) =>
+exports.update_role = async (id, role) =>
 {
-  model.condition = { username : fields.username , password : fields.password }
+  model.condition = { id : id }
   const user_info = await model.get_all();
 
   var user_role = JSON.parse(user_info[0].role);
@@ -51,7 +51,7 @@ exports.update_user_sessions = async(fields) =>
 {
   sessionModel.condition = { user_id : fields.user_id }
   if (await sessionModel.counts() === 0)
-    throw Exception.setError("this user is not exist")
+    throw Exception.setError("this user dosent have any active session yet!")
 
   return await sessionModel.update_items({
     block_status : fields.block

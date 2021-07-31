@@ -24,6 +24,9 @@ exports.login = async (req, res) =>
     req.fields.phone_number = req.fields.username
     const data = await registerService.check_for_username_available(req.fields);
     if (!data) return response.error(res, "your username or password is wrong!")
+    // return response.success(res, data)
+    if (data[0].role === "admin")
+      throw Exception.setError("you are admin!")
     if (data[0].password === req.fields.password)
     {
       redisClient.get(data[0].id, async (err, user_id) =>
@@ -31,17 +34,18 @@ exports.login = async (req, res) =>
         if (err) console.error(err)
         if (user_id !== null) {
           try {
-            await userService.update_service(req.fields, headers)
-            await userService.update_role(req.fields, role)
+            await userService.update_service(data[0].id, headers)
+            await userService.update_role(data[0].id, role)
             return response.success(res, JSON.parse(user_id))
           } catch (e) {
             return response.exception(res, e.message);
           }
         } else {
           var token = await loginService.login(data[0], req.fields)
-          await userService.update_service(req.fields, headers)
+          await userService.update_service(data[0].id, headers)
+          await userService.update_role(data[0].id, role)
           await sessionService.set_session(req ,data[0])
-          redisClient.setex(data[0].id, process.env.redisEndTime, JSON.stringify(token))
+          redisClient.setex(data[0].id, parseInt(process.env.redisEndTime), JSON.stringify(token))
           response.success(res, token)
         }
       })

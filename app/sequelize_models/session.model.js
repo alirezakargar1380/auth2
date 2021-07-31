@@ -11,6 +11,9 @@ const session = db.define('last_password' , {
     session_id : {
         type: Sequelize.TEXT
     } ,
+    password : {
+        type: Sequelize.TEXT
+    },
     block_status : {
         type: Sequelize.BOOLEAN
     } ,
