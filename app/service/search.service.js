@@ -1,7 +1,7 @@
 const model = require('../model/users.model')
 const { Op } = require('sequelize')
 
-exports.search = async (fields , service) => {
+exports.search = async (fields) => {
     // fields.service = service
     const keys = Object.keys(fields)
     const values = Object.values(fields)

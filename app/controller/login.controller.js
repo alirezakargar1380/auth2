@@ -33,7 +33,7 @@ exports.login = async (req, res) =>
           try {
             await userService.update_service(req.fields, headers)
             await userService.update_role(req.fields, role)
-            return  response.success(res, JSON.parse(user_id))
+            return response.success(res, JSON.parse(user_id))
           } catch (e) {
             return response.exception(res, e.message);
           }

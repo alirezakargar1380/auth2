@@ -36,7 +36,14 @@ exports.check_for_block_sessions = async (req, res, next) =>
   }
 }
 
-exports.delete_session = async (req, res) =>
-{
-  response.success(res, "done!")
+exports.delete_session = async (req, res) => {
+  try {
+    validate.form(req.fields)
+
+    var result = await sessionService.delete_session_by_id(req.fields);
+    response.success(res, result)
+  } catch (e) {
+    return response.exception(res, e.message);
+  }
+
 }

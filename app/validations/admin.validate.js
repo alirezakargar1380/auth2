@@ -17,28 +17,6 @@ class Validate {
       service: {
         type: String,
       },
-      password: {
-        type: String,
-        length: { min: 8, max: 48 }
-      },
-      phone_number: {
-        type: String,
-      },
-      email: {
-        type: String,
-      },
-      user_information: {
-        type: String,
-      },
-      role: {
-        type: String,
-      },
-      company_information: {
-        type: String,
-      },
-      answers: {
-        type: String,
-      },
     };
     this.errorMessages = {
       required: () => 'ERROR_MESSAGE_REQUIRED',
@@ -56,11 +34,6 @@ class Validate {
 
   header(items, throwErrors = true) {
     const schema = new Schema({
-      auth_token: _.assign({},
-          this.fields.auth_token, {
-            required: true
-          },
-      ),
       service: _.assign({},
           this.fields.service, {
             required: true
@@ -70,24 +43,6 @@ class Validate {
 
 
     schema.message(this.headerErrorMessages);
-
-    return this.constructor.sanitizeErrors(
-        schema.validate(_.assign({}, items)),
-        throwErrors,
-    );
-  }
-
-  form(items, throwErrors = true) {
-    const schema = new Schema({
-      id: _.assign({},
-          this.fields.id, {
-            required: true
-          },
-      ),
-    });
-
-
-    schema.message(this.errorMessages);
 
     return this.constructor.sanitizeErrors(
         schema.validate(_.assign({}, items)),

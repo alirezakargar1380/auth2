@@ -41,9 +41,6 @@ const users = db.define('users' , {
     service: {
         type: Sequelize.TEXT
     } ,
-    social_media: {
-        type: Sequelize.TEXT
-    } ,
     user_information: {
         type: Sequelize.TEXT
     } ,
@@ -51,8 +48,28 @@ const users = db.define('users' , {
         type: Sequelize.TEXT
     },
     user_id: {
-        allowNull: false,
         type: Sequelize.INTEGER
+    },
+    facebook: {
+        type: Sequelize.TEXT
+    },
+    twitter: {
+        type: Sequelize.TEXT
+    },
+    linkedIn: {
+        type: Sequelize.TEXT
+    },
+    youtube: {
+        type: Sequelize.TEXT
+    },
+    aparat: {
+        type: Sequelize.TEXT
+    },
+    instagram: {
+        type: Sequelize.TEXT
+    },
+    telegram: {
+        type: Sequelize.TEXT
     },
     address: {
         type: Sequelize.JSON

@@ -6,6 +6,7 @@ const authentication = require("./../controller/basic_authentication.controller"
 Router
     .route('/sessions/get')
     .post(
+        authentication.API_authenticaiton,
         session.check_for_block_sessions,
         session.get_sessions
     )

@@ -22,6 +22,9 @@ class session extends Model {
     this.counts = async () => {
       return await this.count()
     }
+    this.destroy = async () => {
+      return await this.delete()
+    }
   }
 }
 

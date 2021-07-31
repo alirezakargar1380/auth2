@@ -52,3 +52,9 @@ exports.get_sessions_by_session_id = async (session_id) =>
   if (await session_model.counts() === 0) return null
   return await session_model.select()
 }
+
+exports.delete_session_by_id = async ({id}) =>
+{
+  session_model.condition = { id : id }
+  return await session_model.destroy()
+}

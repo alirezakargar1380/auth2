@@ -40,7 +40,7 @@ exports.user_information = async (decoded_token, fields) =>
 {
   usersModel.condition = { id : decoded_token.id }
   return await usersModel.update_items({
-    user_information : fields.user_information , national_code : fields.national_code , real_or_legal : fields.real_or_legal
+    user_information : fields.user_information, national_code : fields.national_code , real_or_legal : fields.real_or_legal
   })
 }
 
@@ -66,14 +66,20 @@ exports.update_social_media = async (user_info , fields) =>
 {
   usersModel.condition = { id : user_info.id }
   return await usersModel.update_items({
-    social_media : fields.social_media 
+    instagram : fields.instagram,
+    facebook : fields.facebook,
+    telegram : fields.telegram,
+    twitter : fields.twitter,
+    linkedIn : fields.linkedIn,
+    youtube : fields.youtube,
+    aparat : fields.aparat,
   })
 }
 
 exports.delete_user = async (decoded_token, service) =>
 {
   usersModel.condition = { id : decoded_token.id }
-  const user_data = await usersModel.get_all()
+  // const user_data = await usersModel.get_all()
   return await usersModel.destroy()
   // if (user_data[0].service === JSON.parse(service)[0])
   // if (user_data[0].service !== JSON.parse(service)[0]) return "cant delete this user in this platform"

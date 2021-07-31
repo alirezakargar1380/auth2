@@ -1,9 +1,12 @@
 const response = require("../utils/response.utitlity");
 const tokenService = require("../service/token.service");
 const _ = require("lodash");
+const validate = require("../validations/admin.validate");
 
 exports.admin_token_checking = async (req, res, next) =>
 {
+  // TEST
+  return next()
   try {
     await tokenService.token_validate(req.headers.auth_token)
     var decode_token = await tokenService.decode_token(req.headers.auth_token)
@@ -19,6 +22,15 @@ exports.admin_token_checking = async (req, res, next) =>
       return response.error(res, "you are not admin")
     }
 
+  } catch (e) {
+    return response.exception(res, e.message);
+  }
+}
+
+exports.register = async (req, res) =>
+{
+  try {
+    validate.header(req.headers)
   } catch (e) {
     return response.exception(res, e.message);
   }

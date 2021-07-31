@@ -9,7 +9,6 @@ const JWT = require("./../utils/JWT.utility");
 
 exports.set_last_pass = async (decoded_token) =>
 {
-  usersModel.condition = { id : decoded_token.id }
   last_passwordModel.condition = { user_id : decoded_token.id }
   var last_password = await usersModel.get_all()
   // return console.log( last_password[0].password )
@@ -22,9 +21,9 @@ exports.set_last_pass = async (decoded_token) =>
     })
 
   } else {
-    last_passwordModel.condition = { user_id : decoded_token.id }
-    var item = await last_passwordModel.select()
-    last_passwordModel.condition = { id : item[0].id }
+    // last_passwordModel.condition = { user_id : decoded_token.id }
+    // var item = await last_passwordModel.select()
+    // last_passwordModel.condition = { id : item[0].id }
     await last_passwordModel.update_items({
       password : last_password[0].password
     })
