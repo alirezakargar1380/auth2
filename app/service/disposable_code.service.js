@@ -88,7 +88,7 @@ exports.check_for_expire = (ArrayList) => {
 exports.code_checking = async (code) =>
 {
   // return console.log(code)
-  disposable_codeModel.limit = {}
+  // disposable_codeModel.limit = {}
   disposable_codeModel.condition = { status : true , code : parseInt(code) } 
   var count = await disposable_codeModel.counts()
   if (count === 0)

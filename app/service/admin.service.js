@@ -2,10 +2,12 @@ const  { v4: uuidv4 }  = require('uuid');
 const model = require("../model/users.model")
 const Exception = require('../utils/error.utility');
 const _ = require("lodash");
+const searchService = require("./search.service");
 
 exports.check_for_admin_available = async (fields) =>
 {
   model.condition = { username : fields.username }
+  console.log(await model.count_all())
   if (await model.count_all() !== 0)
     throw Exception.setError("this username is available now")
 
@@ -35,4 +37,10 @@ exports.checking_admin_and_user_service = async (service_header, { user_id }, {s
 
   if (!_.includes(result[0].service, JSON.parse(service)[0]))
     throw Exception.setError("you are not admin this user")
+}
+
+exports.get_admin_service = async () =>
+{
+  // searchService.get_admin_service_by_service({ service:  })
+  return "admin"
 }

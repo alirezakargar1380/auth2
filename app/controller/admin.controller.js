@@ -54,3 +54,21 @@ exports.register = async (req, res) =>
     return response.exception(res, e.message);
   }
 }
+
+exports.get_admin_service = async (req, res) => {
+  try {
+    var service = JSON.parse(req.headers.service)
+    if (service.length >= 2)
+      throw Exception.setError("your service length can be more than 1");
+
+    var data = await searchService.get_admin_service_by_service({
+      service: service[0]
+    }, service)
+    // console.log(data)
+    // var result = await adminService.get_admin_service()
+    return response.success(res, JSON.parse(data.user_service_role))
+  } catch (e) {
+    return response.exception(res, e.message);
+  }
+
+}

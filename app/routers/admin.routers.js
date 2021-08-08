@@ -28,6 +28,13 @@ Router
     )
 
 Router
+    .route('/admin/get/service_role')
+    .get(
+        authentication.API_authenticaiton,
+        admin.get_admin_service
+    )
+
+Router
     .route('/')
     .get((req, res) => {
         res

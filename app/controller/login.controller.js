@@ -34,8 +34,6 @@ exports.login = async (req, res) =>
         if (err) console.error(err)
         if (user_id !== null) {
           try {
-            await userService.update_service(data[0].id, headers)
-            await userService.update_role(data[0].id, role)
             return response.success(res, JSON.parse(user_id))
           } catch (e) {
             return response.exception(res, e.message);

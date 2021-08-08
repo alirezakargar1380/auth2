@@ -7,6 +7,7 @@ const security_questionService = require("../service/security_question.service")
 
 exports.update_password = async (req, res) => {
   try {
+    validate.header(req.headers)
     validate.password(req.fields)
     await tokenService.token_validate(req.fields.auth_token)
     var decode_token = await tokenService.decode_token(req.fields.auth_token)
@@ -23,9 +24,10 @@ exports.update_password = async (req, res) => {
 exports.phone_update = async (req, res) =>
 {
   try {
+    validate.header(req.headers)
     validate.phone_number(req.fields)
-    await tokenService.token_validate(req.fields.auth_token)
-    var decode_token = await tokenService.decode_token(req.fields.auth_token)
+    await tokenService.token_validate(req.headers.auth_token)
+    var decode_token = await tokenService.decode_token(req.headers.auth_token)
     response.success(res,
         await updatesService.update_phone(decode_token, req.fields)
     )
@@ -38,9 +40,10 @@ exports.phone_update = async (req, res) =>
 exports.email_update = async (req, res) =>
 {
   try {
+    validate.header(req.headers)
     validate.email(req.fields)
-    await tokenService.token_validate(req.fields.auth_token)
-    var decode_token = await tokenService.decode_token(req.fields.auth_token)
+    await tokenService.token_validate(req.headers.auth_token)
+    var decode_token = await tokenService.decode_token(req.headers.auth_token)
     response.success(res,
         await updatesService.update_email(decode_token, req.fields)
     )
@@ -69,9 +72,10 @@ exports.user_information = async (req, res) =>
 exports.update_role = async (req, res) =>
 {
   try {
+    validate.header(req.headers)
     validate.role(req.fields)
-    await tokenService.token_validate(req.fields.auth_token)
-    var decode_token = await tokenService.decode_token(req.fields.auth_token)
+    await tokenService.token_validate(req.headers.auth_token)
+    var decode_token = await tokenService.decode_token(req.headers.auth_token)
     response.success(res,
         await updatesService.role(decode_token, req.fields)
     )

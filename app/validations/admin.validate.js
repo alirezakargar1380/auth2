@@ -14,6 +14,12 @@ class Validate {
       role: {
         type: String,
       },
+      username: {
+        type: String,
+      },
+      phone_number: {
+        type: String,
+      },
     };
     this.errorMessages = {
       required: () => 'ERROR_MESSAGE_REQUIRED',
@@ -55,7 +61,17 @@ class Validate {
           },
       ),
       phone_number: _.assign({},
-          this.fields.role, {
+          this.fields.phone_number, {
+            required: true
+          },
+      ),
+      username: _.assign({},
+          this.fields.username, {
+            required: true
+          },
+      ),
+      user_service_role: _.assign({},
+          this.fields.user_service_role, {
             required: true
           },
       ),

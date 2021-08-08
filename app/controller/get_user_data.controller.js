@@ -4,23 +4,6 @@ const tokenService = require("../service/token.service");
 const userService = require("../service/user.service");
 const admin_service = require("../service/admin.service");
 
-exports.get_role = async (req, res) =>
-{
-  try {
-    validate.header(req.headers)
-    await tokenService.token_validate(req.headers.auth_token)
-    var decode_token = await tokenService.decode_token(req.headers.auth_token);
-    return response.success(res,
-        {
-          role: decode_token.role
-        }
-    )
-  } catch (e) {
-    return response.exception(res, e.message);
-  }
-
-}
-
 exports.get_user_detail = async (req, res) =>
 {
 
@@ -29,6 +12,22 @@ exports.get_user_detail = async (req, res) =>
     await tokenService.token_validate(req.headers.auth_token)
     var decode_token = await tokenService.decode_token(req.headers.auth_token);
     const user_data = await userService.get_user_data(decode_token)
+
+    response.success(res, user_data)
+  } catch (e) {
+    return response.exception(res, e.message);
+  }
+
+}
+
+exports.is_login = async (req, res) =>
+{
+
+  try {
+    validate.header(req.headers)
+    await tokenService.token_validate(req.headers.auth_token)
+    var decode_token = await tokenService.decode_token(req.headers.auth_token);
+    const user_data = await userService.get_active_sessions(decode_token)
 
     response.success(res, user_data)
   } catch (e) {

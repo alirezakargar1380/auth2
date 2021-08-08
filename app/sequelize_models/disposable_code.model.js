@@ -22,7 +22,7 @@ const disposable_code = db.define('disposable_code' , {
     } ,
     user_id: {
         type: Sequelize.UUID
-    } 
+    }
   }
 )
 

@@ -28,6 +28,11 @@ exports.check_for_available = async (fields) =>
   return true
 }
 
+exports.check_for_available_admin_role = async (fields) =>
+{
+
+}
+
 exports.check_for_username_available = async (fields) =>
 {
   model.condition = { username : fields.username }

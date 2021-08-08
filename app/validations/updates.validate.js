@@ -151,11 +151,6 @@ class Validate {
 
   phone_number(items, throwErrors = true) {
     const schema = new Schema({
-      auth_token: _.assign({},
-          this.fields.auth_token, {
-            required: true
-          },
-      ),
       phone_number: _.assign({},
           this.fields.phone_number, {
             required: true
@@ -210,11 +205,6 @@ class Validate {
 
   email(items, throwErrors = true) {
     const schema = new Schema({
-      auth_token: _.assign({},
-          this.fields.auth_token, {
-            required: true
-          },
-      ),
       email: _.assign({},
           this.fields.email, {
             required: true
@@ -299,11 +289,6 @@ class Validate {
 
   role(items, throwErrors = true) {
     const schema = new Schema({
-      auth_token: _.assign({},
-          this.fields.auth_token, {
-            required: true
-          },
-      ),
       role: _.assign({},
           this.fields.role, {
             required: true

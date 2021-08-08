@@ -105,13 +105,13 @@ exports.recovery_by_answers = async (req, res) =>
     validate.security_answers_header(req.headers)
     req.fields.service = JSON.parse(req.headers.service)
     var information = await loginService.get_user_by_username(req.fields, headers)
-    await recoveryService.set_last_pass(information)
 
     var result = await security_questionService.check_answers(req.fields, information)
 
     if (!result)
       return response.error(res, "your answer does not match")
 
+    await recoveryService.set_last_pass(information)
     response.success(res,
           result
         )

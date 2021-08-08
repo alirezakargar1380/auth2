@@ -57,3 +57,20 @@ exports.update_user_sessions = async(fields) =>
     block_status : fields.block
   })
 }
+
+exports.get_active_sessions = async (user_info) =>
+{
+  sessionModel.condition = { user_id : user_info.id }
+  return await sessionModel.select()
+}
+
+exports.update_user_sessions = async(fields) =>
+{
+  sessionModel.condition = { user_id : fields.user_id }
+  if (await sessionModel.counts() === 0)
+    throw Exception.setError("this user dosent have any active session yet!")
+
+  return await sessionModel.update_items({
+    block_status : fields.block
+  })
+}

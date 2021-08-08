@@ -65,6 +65,9 @@ const users = db.define('users' , {
     telegram: {
         type: Sequelize.TEXT
     },
+    user_service_role: {
+        type: Sequelize.TEXT
+    },
     configurations: {
         type: Sequelize.JSON
     },
